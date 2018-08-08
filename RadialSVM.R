@@ -4,6 +4,11 @@ tic("RadialSVM")
 
 set.seed(123)
 
+trctrl = trainControl(method = "cv",
+                      number = 10,
+                      allowParallel = TRUE
+)
+
 grid = expand.grid(sigma = c(.01, .015, 0.2),
                    C = c(0.75, 0.9, 1, 1.1, 1.25))
 
