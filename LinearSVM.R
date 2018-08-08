@@ -6,12 +6,11 @@ trctrl = trainControl(method = "cv",
                       allowParallel = TRUE
 )
 
-grid = expand.grid(sigma = c(.01, .015, 0.2),
-                   C = c(0.75, 0.9, 1, 1.1, 1.25))
+grid = expand.grid(C = c(0.75, 0.9, 1, 1.1, 1.25))
 
 model.svmLinear.past = train(pledged_usd~.,
                                data = trainingnonlog,
-                               method ="svmLinear",
+                               method = "svmLinear",
                                trControl = trctrl,
                                preProcess = c("center", "scale"),
                                tuneGrid = grid,
